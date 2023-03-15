@@ -2,7 +2,7 @@ import { BillingAlarm } from 'aws-cdk-billing-alarm';
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
-export class PvmAccountGovernerStack extends Stack {
+export class PvmAccountGovernorStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 

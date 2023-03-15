@@ -1,17 +1,15 @@
 import * as cdk from 'aws-cdk-lib';
-import { Template, Match } from 'aws-cdk-lib/assertions';
-import * as PvmAccountSetup from '../lib/pvm-account-setup-stack';
+import { Template } from 'aws-cdk-lib/assertions';
+import * as PvmAccountSetup from '../lib/pvm-account-governer-stack';
 
-test('SQS Queue and SNS Topic Created', () => {
+test('Account Governer Stack matches snapshot', () => {
   const app = new cdk.App();
   // WHEN
-  const stack = new PvmAccountSetup.PvmAccountSetupStack(app, 'MyTestStack');
+  const stack = new PvmAccountSetup.PvmAccountGovernerStack(app, 'MyTestStack');
   // THEN
 
   const template = Template.fromStack(stack);
 
-  template.hasResourceProperties('AWS::SQS::Queue', {
-    VisibilityTimeout: 300
-  });
-  template.resourceCountIs('AWS::SNS::Topic', 1);
+  // template should match snapshot
+  expect(template).toMatchSnapshot();
 });

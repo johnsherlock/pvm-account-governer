@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account Governer Stack matches snapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "GreaterThanTenBillingAlarmEstimatedChargesAlarmFF863F8C": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "GreaterThanTenBillingAlarmTopic6A2DC8AB",
+          },
+        ],
+        "AlarmDescription": "Upper monthly billing cost limit",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "Dimensions": [
+          {
+            "Name": "Currency",
+            "Value": "USD",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "EstimatedCharges",
+        "Namespace": "AWS/Billing",
+        "Period": 32400,
+        "Statistic": "Maximum",
+        "Threshold": 10,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "GreaterThanTenBillingAlarmTopic6A2DC8AB": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "GreaterThanTenBillingAlarmTopicjohnsherlockgmailcomE01391C6": {
+      "Properties": {
+        "Endpoint": "john.sherlock@gmail.com",
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "GreaterThanTenBillingAlarmTopic6A2DC8AB",
+        },
+      },
+      "Type": "AWS::SNS::Subscription",
+    },
+    "GreaterThanThirtyBillingAlarmEstimatedChargesAlarm7A6B799A": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "GreaterThanThirtyBillingAlarmTopicA0604E7A",
+          },
+        ],
+        "AlarmDescription": "Upper monthly billing cost limit",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "Dimensions": [
+          {
+            "Name": "Currency",
+            "Value": "USD",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "EstimatedCharges",
+        "Namespace": "AWS/Billing",
+        "Period": 32400,
+        "Statistic": "Maximum",
+        "Threshold": 30,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "GreaterThanThirtyBillingAlarmTopicA0604E7A": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "GreaterThanThirtyBillingAlarmTopicjohnsherlockgmailcomB8C3EF0C": {
+      "Properties": {
+        "Endpoint": "john.sherlock@gmail.com",
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "GreaterThanThirtyBillingAlarmTopicA0604E7A",
+        },
+      },
+      "Type": "AWS::SNS::Subscription",
+    },
+    "GreaterThanTwentyBillingAlarmEstimatedChargesAlarmF79E8A23": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "GreaterThanTwentyBillingAlarmTopic4C8967D8",
+          },
+        ],
+        "AlarmDescription": "Upper monthly billing cost limit",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "Dimensions": [
+          {
+            "Name": "Currency",
+            "Value": "USD",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "EstimatedCharges",
+        "Namespace": "AWS/Billing",
+        "Period": 32400,
+        "Statistic": "Maximum",
+        "Threshold": 20,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "GreaterThanTwentyBillingAlarmTopic4C8967D8": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "GreaterThanTwentyBillingAlarmTopicjohnsherlockgmailcom45902F32": {
+      "Properties": {
+        "Endpoint": "john.sherlock@gmail.com",
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "GreaterThanTwentyBillingAlarmTopic4C8967D8",
+        },
+      },
+      "Type": "AWS::SNS::Subscription",
+    },
+    "GreaterThanZeroBillingAlarmEstimatedChargesAlarm1AD9BF1F": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "GreaterThanZeroBillingAlarmTopic4B889EEF",
+          },
+        ],
+        "AlarmDescription": "Upper monthly billing cost limit",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "Dimensions": [
+          {
+            "Name": "Currency",
+            "Value": "USD",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "EstimatedCharges",
+        "Namespace": "AWS/Billing",
+        "Period": 32400,
+        "Statistic": "Maximum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "GreaterThanZeroBillingAlarmTopic4B889EEF": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "GreaterThanZeroBillingAlarmTopicjohnsherlockgmailcom7D71EB68": {
+      "Properties": {
+        "Endpoint": "john.sherlock@gmail.com",
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "GreaterThanZeroBillingAlarmTopic4B889EEF",
+        },
+      },
+      "Type": "AWS::SNS::Subscription",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
